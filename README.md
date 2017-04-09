@@ -1,4 +1,4 @@
-#### [原文地址](hhttp://khanlou.com/2017/04/safety-in-swift/) 翻译：[DeveloperLx](http://weibo.com/DeveloperLx)
+#### [原文地址](http://khanlou.com/2017/04/safety-in-swift/) 翻译：[DeveloperLx](http://weibo.com/DeveloperLx)
 
 
 <div class="blogpost">

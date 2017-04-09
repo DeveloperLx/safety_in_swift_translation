@@ -8,20 +8,19 @@
         </h2>
     </div>
     <p>
-        Swift is commonly described as a “safe” language. Indeed, the
-        <a href="https://swift.org/about/">
-            About
-        </a>
-        page of
+        Swift通常被描述为一个安全的语言。的确，在
         <a href="https://swift.org/">
             swift.org
         </a>
-        says:
+        的
+        <a href="https://swift.org/about/">
+            关于
+        </a>
+        页面中，提到了：
     </p>
     <blockquote>
         <p>
-            Swift is a general-purpose programming language built using a modern approach
-            to safety, performance, and software design patterns.
+            Swift是一种通用的编程语言，采用现代化的方式来构建安全、高性能和软件设计模式来构建。
         </p>
     </blockquote>
     <p>
@@ -32,225 +31,157 @@
             <li>
                 <p>
                     <strong>
-                        Safe.
+                        安全。
                     </strong>
-                    The most obvious way to write code should also behave in a safe manner.
-                    Undefined behavior is the enemy of safety, and developer mistakes should
-                    be caught before software is in production. Opting for safety sometimes
-                    means Swift will feel strict, but we believe that clarity saves time in
-                    the long run.
+                    写代码最显而易见的，是应当表现在安全的方式下。未定义的行为是安全的敌人，开发者的错误应当要在产品上线前被捕捉到。选择了安全，意味着swift会显得很严格，但我们认为这样的清晰长期来看是可以节省时间的。
                 </p>
             </li>
             <li>
                 <p>
                     <strong>
-                        Fast.
+                        快速。
                     </strong>
-                    Swift is intended as a replacement for C-based languages (C, C++, and
-                    Objective-C). As such, Swift must be comparable to those languages in performance
-                    for most tasks. Performance must also be predictable and consistent, not
-                    just fast in short bursts that require clean-up later. There are lots of
-                    languages with novel features — being fast is rare.
+                    Swift旨在代替基于C的语言（C，C++，和Objective-C）。因此，对于大多数的任务，Swift必须在性能上可以与之相比。且性能必须是可预测且稳定的，不仅仅只那种在短期内还需要清理的快速。很多的语言都具有着新奇的特性 – 但很少会有快速这一条。
                 </p>
             </li>
             <li>
                 <p>
                     <strong>
-                        Expressive.
+                        表现力。
                     </strong>
-                    Swift benefits from decades of advancement in computer science to offer
-                    syntax that is a joy to use, with modern features developers expect. But
-                    Swift is never done. We will monitor language advancements and embrace
-                    what works, continually evolving to make Swift even better.
+                    表现力。Swift获益于计算机科学几十年的进步，提供了现代的特性开发者所期望的，乐于去使用的语法。但Swift从不止步。我们将监控语言的进步，并拥抱有效的部分，持续地改进使Swift变得更好。
                 </p>
             </li>
         </ul>
     </blockquote>
     <p>
-        For example, when working with things like the
+        例如，当用到
         <code class="highlighter-rouge">
             Optional
         </code>
-        type, its clear how Swift increases safety. Before, you would never know
-        which variables could be null and which couldn’t. With this new nullability
-        information, you’re forced to handle the null case explicitly. When working
-        with these “nullable” types, you can opt to crash, usually using an operator
-        that involves an exclamation point (
+        类型的对象时，很明显它是如何增强Swift的安全性的。在之前，你是无法知道哪个变量是可以为空，哪个是不可以的。有了这个可为空的信息后，你就必须显式地处理为空时的情形了。当使用这些“nullable”类型时，你可以选择崩溃掉，通常使用一个“
         <code class="highlighter-rouge">
             !
-        </code>
-        ). What is meant by safety here is apparent. It’s a seatbelt that you
-        can choose to unbuckle, at your own risk.
+        </code>        
+        ”的操作符。“安全”在这里的含义是很明显的。它是你可以选择去解开的“安全带”，但风险要由你自己承担。
     </p>
     <p>
-        However, in other cases, the safety seems to be lacking. Let’s take a
-        look at an example. If we have a dictionary, grabbing the value for some
-        given key returns an optional:
+        然而，在其它的情形下，似乎是缺乏安全性的。让我们来看一个例子。如果我们有一个字典，通过给定的键来获取相应的值，将返回可选的类型：
     </p>
-    <div class="highlighter-rouge">
-        <pre class="highlight">
-            <code>
-                let person: [String: String] = //... type(of: person["name"]) // =&gt;
-                Optional&lt;String&gt;
-            </code>
-        </pre>
-    </div>
+    <pre class="highlight"><code>let person: [String: String] = //... type(of: person["name"]) // =&gt;Optional&lt;String&gt;</code></pre>
     <p>
-        But if we do the same with an array, we don’t get an optional:
+        但我们在数组上做相同的事的时候，我们得到的却并非是可选的类型：
     </p>
-    <div class="highlighter-rouge">
-        <pre class="highlight">
-            <code>
-                let users: [User] = //... type(of: users[0]) // =&gt; User
-            </code>
-        </pre>
-    </div>
+    <pre class="highlight"><code>let users: [User] = //... type(of: users[0]) // =&gt; User</code></pre>
     <p>
-        Why not? The array could be empty. If the
+        为何如此呢？这个数组可能是空的。如果
         <code class="highlighter-rouge">
             users
         </code>
-        array were empty, the program would have no real option but to crash.
-        That hardly seems safe. I want my money back!
+        这个数组是空的，那程序就没有选择，只能崩溃。这很难是安全的。我可不想被老板罚钱！
     </p>
     <p>
-        Well, okay. Swift has an open development process. Perhaps we can suggest
-        a change to the
+        嗯，好吧。Swift有一个开放的开发进程。或许我们可以建议一项改动到
         <a href="">
             <code class="highlighter-rouge">
                 swift evolution
             </code>
         </a>
-        mailing list, and—
+        的mailing列表中，然后-
     </p>
     <p>
-        Nope, that won’t work either. The
-        <a href="https://github.com/apple/swift-evolution/blob/master/commonly_proposed.md">
-            “commonly rejected” proposals
-        </a>
-        page in the
+        不，这也不行！在
         <code class="highlighter-rouge">
             swift-evolution
         </code>
-        GitHub repo says that they won’t accept such a change:
+        这个GitHub repo，
+        <a href="https://github.com/apple/swift-evolution/blob/master/commonly_proposed.md">
+            “commonly rejected” proposals
+        </a>
+        提案的页面中，声明了他们是不会接受这样的变化的：
     </p>
     <blockquote>
         <ul>
             <li>
-                Make
+                使 
                 <code class="highlighter-rouge">
                     Array&lt;T&gt;
                 </code>
-                subscript access return
+                的下标访问方式返回
                 <code class="highlighter-rouge">
                     T?
                 </code>
-                or
+                或
                 <code class="highlighter-rouge">
                     T!
                 </code>
-                instead of
+                而不是
                 <code class="highlighter-rouge">
                     T
                 </code>
-                : The current array behavior is
+                ：当前数组的这个行为是
                 <a href="https://lists.swift.org/pipermail/swift-evolution/Week-of-Mon-20151214/002446.html">
-                    intentional
+                    有意图的
                 </a>
-                , as it accurately reflects the fact that out-of-bounds array access is
-                a logic error. Changing the current behavior would slow
+                ，它精确地反映了数组越界是逻辑错误的这一事实。改变当前的这一行为会使
                 <code class="highlighter-rouge">
                     Array
                 </code>
-                accesses to an unacceptable degree. This topic has come up
+                的访问速度降低到一个不可接受的程度。这个话题之前已被提到过了                
                 <a href="https://lists.swift.org/pipermail/swift-evolution/Week-of-Mon-20151214/002425.html">
-                    multiple
+                    多
                 </a>
-                times before but is very unlikely to be accepted.
+                次，但确实是不大可能被接受的。
             </li>
         </ul>
     </blockquote>
     <p>
-        What gives? The stated reason is that speed is too important in this particular
-        case. But referring back to the About page linked above, “safe” is listed
-        as a description of the language before “fast”. Shouldn’t safety be more
-        important than speed?
+        给出了什么？它阐明的原因是，在这种情况下，速度太重要了。但回到上面的关于页面，对于这个语言的描述中，“安全”是被列为“快速”之前的。安全难道不应该比速度更为重要么？
     </p>
     <p>
-        There is a fundamental contention here, and the solution lies in the definitions
-        of the word “safe”. While the common understanding of “safe” is more or
-        less “doesn’t crash”, the Swift core members usually use the same word
-        to mean “will never access incorrect memory unintentionally”.
+        这里有一个基本的争论，解决的要点则在于对“安全”一词的定义。尽管通常对于“安全”的理解是更多或更少的“不要崩溃”，但Swift的核心成员常常会使用相同的词语来表示“永远不会无意识地访问到错误的内存”。
     </p>
     <p>
-        In this way, Swift’s
+        在这种含义之下，Swift的
         <code class="highlighter-rouge">
             Array
         </code>
-        subscript is “safe”. It’ll never return data in memory beyond the bounds
-        allocated for the array itself. It will crash before giving you a handle
-        on memory that doesn’t contain what it should. In the same way that the
-        Optional type prevents whole classes of bugs (null dereferencing) from
-        existing, this behavior prevents a different class of bugs (buffer overflows)
-        from existing.
+        下标就是“安全”的了。它将永远都不会在内存中返回超越数组本身所分配的范围外的数据。它会在给出你本不应该包含的内存中的句柄前崩溃掉。相同的方式，可选类型避免了现有的整个类型的错误（null解除引用），而这个行为则防止了不同类型错误的存在（缓冲溢出）。
     </p>
     <p>
-        You can hear Chris Lattner make this distinction
+        你可以听到Chris Lattner的区分，
         <a href="https://overcast.fm/+CdTE-_oY/24:37">
-            at 24:39 in his interview with ATP
+            在他被ATP采访中的24分39秒
         </a>
-        :
+        ：
     </p>
     <blockquote>
         <p>
-            We said the only way that this can make sense in terms of the cost of
-            the disruption to the community is if we make it a safe programming language:
-            not “safe” as in “you can have no bugs,” but “safe” in terms of memory
-            safety while also providing high performance and moving the programming
-            model forward.
+            我们说，在社区破坏的成本方面，可以唯一讲得通的方式，是如果我们把它变成为一种安全的编程语言：“你不会有bug”并不是安全的，但内存安全方面的“安全”也将提供高性能，以及推动编程模型向前。
         </p>
     </blockquote>
     <p>
-        Perhaps “memory-safe” is a better term than just “safe”. The idea is that,
-        while some application programmers might prefer getting back an optional
-        instead of trapping on out-of-bounds-array access, everyone can agree that
-        they’d prefer to crash their program rather than let it continue with a
-        variable that contains invalid data, a variable that could potentially
-        be exploited in a buffer overflow attack.
+        或许“内存安全”是一个比“安全”更好的术语。这个想法是，尽管一些应用的编程者会更喜欢返回可选的类型，而不是捕获超出范围的数组访问，但每个人都可以同意，他们宁愿让程序崩溃，也不要让程序带有包含无效数据的变量，或可能会在缓冲溢出的攻击中被利用的变量继续下去。
     </p>
     <p>
-        While this second tradeoff (crashing instead of allowing buffer overflows)
-        may seem obvious, some languages
+        尽管第二个权衡（崩溃而不是允许缓冲溢出）可靠看起来很明显，一些语言
         <em>
-            don’t
+            并不能
         </em>
-        give you this guarantee. In C, accessing an array out-of-bounds gives
-        you undefined behavior, meaning that anything could happen, depending on
-        the implementation of the compiler that you were using. Especially in cases
-        when the programmer can quickly tell that they made a mistake, such as
-        with out-of-bounds array access, the Swift team has shown that they feel
-        like this is an acceptable place to (consistently!) crash, instead of returning
-        an optional, and definitely instead of returning junk memory.
+        给你这样的包装。在C语言中，访问数据越界会得到未知的行为，意味着任何事都可能发生，具体则依赖于你所使用的编译器的实现。特别是当编程者可以快速被告知它们犯了一个错误的情况下，Swift的团队则表示了，他们认为这是一个可以接受崩溃的地方（一直都是！），而不是返回一个可选类型，并明确地代替返回垃圾内存。
     </p>
     <p>
-        Using this definition of “safe” also clarifies what the “unsafe” APIs
-        are designed for. Because they muck about in memory directly, the programmer
-        herself has to take special care to
+        使用这个“安全”的定义也阐明了“不安全”API的设计意图。因为他们直接在内存中“鬼混”（muck about），编程者自己就必须特别小心，来
         <em>
-            ensure
+            确保
         </em>
-        that she’ll never allow access to invalid memory. This is extremely hard,
-        and even experts get it wrong. For an interesting read on this topic, check
-        out
+        它永远都不会访问无效的内存。这是非常困难的，甚至专家也会出错。关于这个话题的有趣的读物，请查看
         <a href="https://www.cocoawithlove.com/blog/2016/02/16/use_it_or_lose_it_why_safe_c_is_sometimes_unsafe_swift.html">
-            Matt Gallagher’s post
+            Matt Gallagher的帖子
         </a>
-        on bridging C to Swift in a safe fashion.
+        ：以安全的方式将C连接到Swift。
     </p>
     <p>
-        Swift and the core team’s definition of “safe” may not line up 100% with
-        yours, but they do prevent classes of bugs so that programmers like you
-        don’t have to think about them day-to-day. It can often help to replace
-        their usage of “safe” with “memory safe” to help understand what they mean.
+        Swift和核心团队对于“安全”的定义和你可能并不是100%相同的，但他们确实可以防止很多类型的错误，以便像你这样的编程者无需每天都考虑它们。通常，将它们使用的“安全”替换为“内存安全”，可以帮助理解他们的意图。
     </p>
 </div>

@@ -1,10 +1,8 @@
 #### [原文地址](hhttp://khanlou.com/2017/04/safety-in-swift/) 翻译：[DeveloperLx](http://weibo.com/DeveloperLx)
 
+
 <div class="blogpost">
     <div class="post-meta">
-        <time datetime="2017-04-05T00:00:00-04:00" itemprop="datePublished" class="timestamp">
-            2017年4月5日
-        </time>
         <h2 class="post-title" itemprop="name headline">
             Swift中的安全特性
         </h2>

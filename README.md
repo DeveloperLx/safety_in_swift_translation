@@ -24,8 +24,8 @@
         </p>
     </blockquote>
     <p>
-        and
-    </p>
+        以及
+    </p>
     <blockquote>
         <ul>
             <li>

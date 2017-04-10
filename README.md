@@ -4,7 +4,7 @@
 <div class="blogpost">
     <div class="post-meta">
         <h2 class="post-title" itemprop="name headline">
-            Swift中的安全特性
+            Swift中的安全
         </h2>
     </div>
     <p>

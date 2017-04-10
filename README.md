@@ -70,7 +70,7 @@
     </p>
     <pre class="highlight"><code>let person: [String: String] = //... type(of: person["name"]) // =&gt;Optional&lt;String&gt;</code></pre>
     <p>
-        但我们在数组上做相同的事的时候，我们得到的却并非是可选的类型：
+        但我们在数组上做相同的事的时候，得到的却并非是可选的类型：
     </p>
     <pre class="highlight"><code>let users: [User] = //... type(of: users[0]) // =&gt; User</code></pre>
     <p>

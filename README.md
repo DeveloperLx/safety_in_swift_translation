@@ -1,10 +1,10 @@
+#### [原文地址](http://khanlou.com/2017/04/safety-in-swift/) 翻译：[DeveloperLx](http://weibo.com/DeveloperLx)
+
+
 <div class="blogpost">
     <div class="post-meta">
-        <time datetime="2017-04-05T00:00:00-04:00" itemprop="datePublished" class="timestamp">
-            2017年4月5日
-        </time>
         <h2 class="post-title" itemprop="name headline">
-            Swift中的安全特性
+            Swift中的安全
         </h2>
     </div>
     <p>
@@ -24,8 +24,8 @@
         </p>
     </blockquote>
     <p>
-        and
-    </p>
+        以及
+    </p>
     <blockquote>
         <ul>
             <li>
@@ -157,7 +157,7 @@
     </p>
     <blockquote>
         <p>
-            我们说，在社区破坏的成本方面，可以唯一讲得通的方式，是如果我们把它变成为一种安全的编程语言：“你不会有bug”并不是安全的，但内存安全方面的“安全”也将提供高性能，以及推动编程模型向前。
+            我们说，在社区破坏的成本方面，唯一可以讲得通的方式，是如果我们把它变成为一种安全的编程语言：不是“你不会有bug”，而是在内存方面的“安全”， 同时提供高性能，以及推动编程模型向前发展。
         </p>
     </blockquote>
     <p>
